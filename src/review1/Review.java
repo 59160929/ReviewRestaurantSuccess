@@ -31,9 +31,9 @@ public class Review extends javax.swing.JFrame {
      * Creates new form Review
      */
     private int IDRestaurant;
-
-    public Review(int x) {
-
+    private int user;
+    public Review(int user,int x) {
+        user=1;
         IDRestaurant = x;
 
         initComponents();
@@ -43,6 +43,8 @@ public class Review extends javax.swing.JFrame {
 
         initComponents();
     }
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,11 +59,11 @@ public class Review extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        point1 = new javax.swing.JButton();
+        point2 = new javax.swing.JButton();
+        point3 = new javax.swing.JButton();
+        point4 = new javax.swing.JButton();
+        point5 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -119,43 +121,43 @@ public class Review extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jButton2.setText("1");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        point1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        point1.setText("1");
+        point1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                point1ActionPerformed(evt);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jButton7.setText("2");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        point2.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        point2.setText("2");
+        point2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                point2ActionPerformed(evt);
             }
         });
 
-        jButton8.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jButton8.setText("3");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        point3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        point3.setText("3");
+        point3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                point3ActionPerformed(evt);
             }
         });
 
-        jButton9.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jButton9.setText("4");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        point4.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        point4.setText("4");
+        point4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                point4ActionPerformed(evt);
             }
         });
 
-        jButton10.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jButton10.setText("5");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        point5.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        point5.setText("5");
+        point5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                point5ActionPerformed(evt);
             }
         });
 
@@ -182,15 +184,15 @@ public class Review extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(point1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton7)
+                                .addComponent(point2)
                                 .addGap(24, 24, 24)
-                                .addComponent(jButton8)
+                                .addComponent(point3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton9)
+                                .addComponent(point4)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton10))))
+                                .addComponent(point5))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -204,12 +206,12 @@ public class Review extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(point5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton7)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(point2)
+                        .addComponent(point3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(point4))
+                    .addComponent(point1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -490,11 +492,20 @@ public class Review extends javax.swing.JFrame {
     //private int idRestaurant = Index.x ;
     private int count = 1;
     private int point = 0;
+  
 
+    
+    
     public void showAvarage() {
-        jLabel12.setText("" + reviewPostService.avgPoint(IDRestaurant));
         
+        double average = reviewPostService.getAverage(IDRestaurant);
+        
+        String getaverage= average+"";
 
+        getaverage = String.format("%.2f", average+0.00);
+
+        jLabel12.setText(getaverage);
+        
     }
 
     public void showNameRestaurant() {
@@ -514,10 +525,20 @@ public class Review extends javax.swing.JFrame {
 
     public void point(int x) throws SQLException {
         point = x;
-        if (reviewPostService.sumPointAndCountToDB(IDRestaurant, 1, point) == true) {
 
+        
+        
+        if (reviewPostService.updatePointAndCount(IDRestaurant, 1, point) == true) {
+            double rating =     reviewPostService.getRating(IDRestaurant);
+
+            if(reviewPostService.updateRating(IDRestaurant,rating) == true){
+
+               if(reviewPostService.addStatus(IDRestaurant,user) == true){ 
             JOptionPane.showMessageDialog(this, "ให้คะเเนนเรียบร้อยเเล้ว");
 
+               }
+               
+            }
         }
     }
 
@@ -538,78 +559,80 @@ public class Review extends javax.swing.JFrame {
 
     private void jLabel12AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel12AncestorAdded
 
-        float a = 0;
-        jLabel12.setText("" + reviewPostService.avgPoint(IDRestaurant));
-        ;
         showAvarage();
 
 
     }//GEN-LAST:event_jLabel12AncestorAdded
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void point1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_point1ActionPerformed
 
         try {
             // 1 point
             point(1);
+            
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
         showAvarage();
 
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_point1ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void point2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_point2ActionPerformed
 
         try {
             // 2 point
             point(2);
+            
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
         showAvarage();
 
 
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_point2ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void point3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_point3ActionPerformed
 
         try {
             // 3 point
             point(3);
+          
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
         showAvarage();
 
 
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_point3ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void point4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_point4ActionPerformed
 
         try {
             // 4 point
             point(4);
+         
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
         showAvarage();
 
 
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_point4ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void point5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_point5ActionPerformed
 
         try {
             // 5 point
             point(5);
+      
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
         showAvarage();
 
 
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_point5ActionPerformed
 
     private void NamelblAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_NamelblAncestorAdded
         showNameRestaurant();
@@ -694,12 +717,7 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JButton btnNearby1;
     private javax.swing.JButton btnNearby2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -723,5 +741,10 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton point1;
+    private javax.swing.JButton point2;
+    private javax.swing.JButton point3;
+    private javax.swing.JButton point4;
+    private javax.swing.JButton point5;
     // End of variables declaration//GEN-END:variables
 }

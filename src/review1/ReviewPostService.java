@@ -12,234 +12,223 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author 59160929
  */
-
 public class ReviewPostService {
 
-        private static DaoReview restaurantDao;
-        private static DaoReview restaurant;
+    private static DaoReview restaurantDao;
+  private static DaoReview restaurant;  
 
-         
-        public static ArrayList<Restaurant> getLinkImage(){
-            
-            restaurantDao = new  RestaurantDao();
-            
-            
-            
-            return restaurantDao.getRestaurant();
+    public static ArrayList<Restaurant> getLinkImage() {
+
+        restaurantDao = new RestaurantDao();
+
+        return restaurantDao.getRestaurant();
+    }
+
+    public static String getLink(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+
+        for (int i = 0; i < restaurant.size(); i++) {
+            return restaurant.get(IDRestaurant).getlinkImage();
         }
-        
-        public static String getLink(int IDRestaurant){
-           ArrayList<Restaurant> restaurant = getLinkImage();
-           
-           for(int i=0 ;i<restaurant.size();i++){
-               return restaurant.get(IDRestaurant).getlinkImage();
-           }
-           return "";
+        return "";
+    }
+
+    public static double getPoint(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+
+        for (int i = 0; i < restaurant.size(); i++) {
+            double point = restaurant.get(IDRestaurant).getPoint()+0.00;
+            return point;
+
         }
-        public static double avgPoint(int IDRestaurant){
-           ArrayList<Restaurant> restaurant = getLinkImage();
-           
-           for(int i=0 ;i<restaurant.size();i++){
-               
-               double count = restaurant.get(IDRestaurant).getCount();
-                double point = restaurant.get(IDRestaurant).getPoint();
-                double average = point/count;
-               return average;
-               
-           }
-           return 0.00 ;
-           
+        return 0.00;
+    }
+
+    public static double getCount(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+        System.out.println(IDRestaurant);
+                
+        for (int i = 1; i < restaurant.size(); i++) {
+            double count=restaurant.get(IDRestaurant).getCount()+0.00;
+            return count;
+
+        }   
+        return 0.00;
+    }
+
+    public static double getRating(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+
+        for (int i = 1; i < restaurant.size(); i++) {
+            
+            return restaurant.get(IDRestaurant).getRating();
+
         }
-        public static String getNameRestaurant(int IDRestaurant){
-           ArrayList<Restaurant> restaurant = getLinkImage();
-           
-           for(int i=0 ;i<restaurant.size();i++){
-               
-               String name = restaurant.get(IDRestaurant).getNameRestaurant();
-               
-               return name;
-               
-           }
-           return "";
+        return 0.00;
+    }
 
-            }
-        public static String getDescribtionRestaurant(int IDRestaurant){
-           ArrayList<Restaurant> restaurant = getLinkImage();
-           
-           for(int i=0 ;i<restaurant.size();i++){
-               
-               String describtion = restaurant.get(IDRestaurant).getDescribtionRestaurant();
-               
-               return describtion;
-               
-           }
-           return "";
+    public static double getAverage(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
 
-            }
-            
-         public static String getAddressRestaurant(int IDRestaurant){
-           ArrayList<Restaurant> restaurant = getLinkImage();
-           
-           for(int i=0 ;i<restaurant.size();i++){
-               
-               String addressRestaurant = restaurant.get(IDRestaurant).getAddressRestaurant();
-               
-               return addressRestaurant;
-               
-           }
-           return "";
+        for (int i = 0; i < restaurant.size(); i++) {
+            double getpoint = getPoint(IDRestaurant);
+            double getcount = getCount(IDRestaurant);
 
-            }
-       public static boolean sumPointAndCountToDB(int IDRestaurant, int count, int point) throws SQLException{
-         
-       ArrayList<Restaurant> restaurant = getLinkImage();
-           
-           for(int i=0 ;i<restaurant.size();i++){
-               
-               int getcount = restaurant.get(IDRestaurant).getCount();
-               count = count+getcount;
-                int getpoint = restaurant.get(IDRestaurant).getPoint();
-                point = point+getpoint;
-                double average = point/count;
-                String ID = IDRestaurant+"";
-                    RestaurantDao.updatePointAndCount(ID, count, point);
-               return true;
-               
-           }
-            return false;
+            return getpoint / getcount;
 
-            }      
-            
-            
-    
+        }
+        return 0.00;
+    }
+
+    public static String getNameRestaurant(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+
+        for (int i = 0; i < restaurant.size(); i++) {
+
+            String name = restaurant.get(IDRestaurant).getNameRestaurant();
+
+            return name;
+
+        }
+        return "";
+
+    }
+
+    public static String getDescribtionRestaurant(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+
+        for (int i = 0; i < restaurant.size(); i++) {
+
+            String describtion = restaurant.get(IDRestaurant).getDescribtionRestaurant();
+
+            return describtion;
+
+        }
+        return "";
+
+    }
+
+    public static String getAddressRestaurant(int IDRestaurant) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        IDRestaurant = IDRestaurant - 1;
+
+        for (int i = 0; i < restaurant.size(); i++) {
+
+            String addressRestaurant = restaurant.get(IDRestaurant).getAddressRestaurant();
+
+            return addressRestaurant;
+
+        }
+        return "";
+
+    }
+
+    public static boolean addStatus(int IDRestaurant, int user) {
+        ArrayList<Restaurant> restaurant = new ArrayList<>();
+
    
-                    
-        
-        public static void main(String [] args){
-            ArrayList<Restaurant> restaurant = getLinkImage();
-            
-            
-            for(int i=0;i<restaurant.size();i++){
-                System.out.println( getLink(2));
-            }
-            
+        try {
+            PreparedStatement pst;
+            Connection connection;
+
+            connection = DriverManager.getConnection(db.url, db.username, db.password);
+            connection.createStatement();
+
+
+            String sql = "INSERT INTO Status (idUser,idRestaurant,Status) VALUES (?,?,?) ";
+            pst = connection.prepareStatement(sql);
+
+            pst.setInt(1, (int) user);
+            pst.setInt(2, (int) IDRestaurant);
+            pst.setInt(3, (int) 1);
+            pst.executeUpdate();
+
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-         
-         /**
-    public static String avgPoint(int IDRestaurant) throws SQLException {
-        float count = 0;
-        float point = 0;
+        return false;
+    }
 
-        String keepIDrestaurant = "" + IDRestaurant;
-        String totalavarage;
-        RestaurantDao reviewPostDao = new RestaurantDao();
+    public static boolean updatePointAndCount(int IDRestaurant, int count, int point) {
+        ArrayList<Restaurant> restaurant = new ArrayList<>();
 
-        count = reviewPostDao.getCount(keepIDrestaurant) + count;
-        point = reviewPostDao.getPoint(keepIDrestaurant) + point;
-        if (count == 0) {
-            totalavarage = "no point";
-        } else {
-            float average = point / count;
-            DecimalFormat changeformat = new DecimalFormat("#.##");
-            totalavarage = changeformat.format(average);
+        double getpoint = getPoint(IDRestaurant);
+        getpoint = getpoint + point;
+        double getcount = getCount(IDRestaurant);
+        getcount = getcount + count;
 
+        try {
+            PreparedStatement pst;
+            Connection connection;
+
+            String keepIDrestaurant = "" + IDRestaurant;
+            connection = DriverManager.getConnection(db.url, db.username, db.password);
+            connection.createStatement();
+
+            String sql = "update Restaurant SET Count = ? ,Point = ? WHERE idRestaurant = " + keepIDrestaurant;
+            pst = connection.prepareStatement(sql);
+
+            pst.setInt(1, (int) getcount);
+            pst.setInt(2, (int) getpoint);
+            pst.executeUpdate();
+
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        return totalavarage;
-
-    }
-    
-        public static String getLinkRestaurant(int IDRestaurant) throws SQLException {
-
-        String keepIDRestaurant = "" + IDRestaurant;
-        Restaurant restaurant = new Restaurant();
-        String link=null;
-        
-        restaurant = reviewPostDao.getRestaurant(keepIDRestaurant);
-        
-        return link;
-
+        return false;
     }
 
-    public static boolean sumPointAndCountToDB(int IDRestaurant, int count, int point) throws SQLException {
-       
-        String keepIDrestaurant = "" + IDRestaurant;
-        RestaurantDao reviewPostDao = new RestaurantDao();
-        int getcount = RestaurantDao.getCount(keepIDrestaurant);
-        count = getcount + count;
-        int getpoint = RestaurantDao.getPoint(keepIDrestaurant);
-        point = getpoint + point;
+    public static boolean updateRating(int IDRestaurant, double rating) {
+        ArrayList<Restaurant> restaurant = new ArrayList<>();
 
-        RestaurantDao.updatePointAndCount(keepIDrestaurant, count, point);
+        double getrating = getRating(IDRestaurant);
+        getrating = getrating + rating;
 
-        return true;
+        try {
+            PreparedStatement pst;
+            Connection connection;
+
+            String keepIDrestaurant = "" + IDRestaurant;
+            connection = DriverManager.getConnection(db.url, db.username, db.password);
+            connection.createStatement();
+
+            String sql = "update Restaurant SET Rating = ? WHERE idRestaurant = " + keepIDrestaurant;
+            pst = connection.prepareStatement(sql);
+
+            pst.setDouble(1, (double) getrating);
+
+            pst.executeUpdate();
+
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Restaurant> restaurant = getLinkImage();
+        //  updatePointAndCount(2,1,5);
+        System.out.print("ok");
+        System.out.println(getCount(2));
+        System.out.println(getPoint(2));
+        updatePointAndCount(2, 1, 25);
 
     }
-    
-    public static String getDescribtion(int IDRestaurant) throws SQLException {
-        String info;
-        
 
-        String keepIDrestaurant = "" + IDRestaurant;
-        String DescribtionRestaurant;
-        RestaurantDao reviewPostDao = new RestaurantDao();
-
-        DescribtionRestaurant = reviewPostDao.getDescribtionRestaurant(keepIDrestaurant);
-        
-       
-        return DescribtionRestaurant;
-
-    }
-    
-    
-    public static String getAddressRestaurant(int IDRestaurant) throws SQLException {
-        String info;
-        
-
-        String keepIDrestaurant = "" + IDRestaurant;
-        String AddressRestaurant;
-        RestaurantDao reviewPostDao = new RestaurantDao();
-
-        AddressRestaurant = reviewPostDao.getAddressRestaurant(keepIDrestaurant);
-        
-       
-        return AddressRestaurant;
-
-    }
-      public static String getLinkRestaurant(int IDRestaurant) throws SQLException {
-        
-
-        String keepIDrestaurant = "" + IDRestaurant;
-        String linkImage;
-        RestaurantDao reviewPostDao = new RestaurantDao();
-
-        linkImage = reviewPostDao.getLinkRestaurant(keepIDrestaurant);
-        
-       
-        return linkImage;
-
-    }
-    
-      public static String getNameRestaurant(int IDRestaurant) throws SQLException {
-        String info;
-        
-
-        String keepIDrestaurant = "" + IDRestaurant;
-        String NameRestaurant;
-        RestaurantDao reviewPostDao = new RestaurantDao();
-
-        NameRestaurant = reviewPostDao.getNameRestaurantDao(keepIDrestaurant);
-        
-       
-        return NameRestaurant;
-
-    }
-    
-    */
 }

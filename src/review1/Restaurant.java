@@ -27,7 +27,7 @@ public final class Restaurant {
     public Restaurant(){
     
     }
-     public Restaurant(int idRestaurant, String NameRestaurant,String AddressRestaurant,String DescribtionRestaurant,int Count,int Point,int Restarantnearby1,int Restarantnearby2,int Restarantnearby3,String Province,double rating,String linkImage) {
+     public Restaurant(int idRestaurant, String NameRestaurant,String AddressRestaurant,String DescribtionRestaurant,int Count,int Point,int Restarantnearby1,int Restarantnearby2,int Restarantnearby3,String Province,double Rating,String linkImage) {
         this.idRestaurant = idRestaurant;
         this.NameRestaurant = NameRestaurant;
         this.AddressRestaurant = AddressRestaurant;
@@ -82,7 +82,7 @@ public final class Restaurant {
     public void setProvince(String Province) {
         this.Province = Province;
     }
-    public void setRating(int Rating) {
+    public void setRating(double Rating) {
         this.Rating = Rating;
     }
    public void setlinkImage(String linkImage) {
@@ -112,6 +112,8 @@ public final class Restaurant {
     public String getDescribtionRestaurant() {
        return DescribtionRestaurant;
     }
+    
+    
     
    public int getCount() {
        return Count;

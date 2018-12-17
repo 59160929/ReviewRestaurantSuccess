@@ -31,10 +31,12 @@ public class Index1 extends javax.swing.JFrame {
     }
     public int countIDRestaurant;
     public int countnext;
-    
+    public int user;
+
     public Index1(int x) {
         countIDRestaurant = x;
         countnext = 0;
+        user=1;
         initComponents();
 
     }
@@ -218,7 +220,7 @@ public class Index1 extends javax.swing.JFrame {
         else{
             keepID = keepID + countIDRestaurant;
         }
-        Review change = new Review(keepID);
+        Review change = new Review(user,keepID);
         change.setVisible(true);
         IDrestaurant = keepID;
 
@@ -234,7 +236,7 @@ public class Index1 extends javax.swing.JFrame {
         else{
             keepID = keepID + countIDRestaurant;
         }
-        Review change = new Review(keepID);
+        Review change = new Review(user,keepID);
         change.setVisible(true);
         IDrestaurant = keepID;
 
@@ -251,7 +253,7 @@ public class Index1 extends javax.swing.JFrame {
         else{
             keepID = keepID + countIDRestaurant;
         }
-        Review change = new Review(keepID);
+        Review change = new Review(user,keepID);
         change.setVisible(true);
         IDrestaurant = keepID;
 
@@ -268,7 +270,7 @@ public class Index1 extends javax.swing.JFrame {
         else{
             keepID = keepID + countIDRestaurant;
         }
-        Review change = new Review(keepID);
+        Review change = new Review(user,keepID);
         change.setVisible(true);
         IDrestaurant = keepID;
 
