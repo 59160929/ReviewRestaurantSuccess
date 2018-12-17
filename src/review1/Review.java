@@ -73,6 +73,7 @@ public class Review extends javax.swing.JFrame {
         point5 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         userlbl = new javax.swing.JLabel();
+        point6 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -181,6 +182,14 @@ public class Review extends javax.swing.JFrame {
             }
         });
 
+        point6.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        point6.setText("< Home >");
+        point6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                point6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -209,14 +218,20 @@ public class Review extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(point5))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
+                        .addGap(20, 20, 20)
+                        .addComponent(point6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
                         .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(708, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(point6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -699,6 +714,16 @@ public class Review extends javax.swing.JFrame {
 
     }//GEN-LAST:event_userlblAncestorAdded
 
+    private void point6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_point6ActionPerformed
+
+        setVisible(false);
+        
+        allRastaurant change = new allRastaurant();
+        change.setVisible(true);
+
+
+    }//GEN-LAST:event_point6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -770,6 +795,7 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JButton point3;
     private javax.swing.JButton point4;
     private javax.swing.JButton point5;
+    private javax.swing.JButton point6;
     private javax.swing.JLabel userlbl;
     // End of variables declaration//GEN-END:variables
 }
