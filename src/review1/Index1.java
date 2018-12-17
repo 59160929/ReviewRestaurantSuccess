@@ -31,7 +31,7 @@ public class Index1 extends javax.swing.JFrame {
     }
     public int countIDRestaurant;
     public int countnext;
-    public int user;
+    public int user=5;
 
     public Index1(int x) {
         countIDRestaurant = x;

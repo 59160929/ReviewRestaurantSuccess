@@ -6,12 +6,19 @@
 package review1;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
  * @author KirkThunder
  */
 public class allRestaurantService {
+
+    public static ArrayList<Restaurant> getData() {
+        allRestaurantDao data = new allRestaurantDao();
+        return data.getAllRestarant();
+    }
     
-    
+
+
 }

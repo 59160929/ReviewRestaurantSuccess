@@ -44,6 +44,16 @@ public final class Restaurant {
         
     }
 
+     public Restaurant( String NameRestaurant,double Rating,String Province) {
+        this.NameRestaurant = NameRestaurant;
+        this.Province = Province;
+        this.Rating = Rating;  
+    }
+       public Restaurant( String NameRestaurant) {
+        this.NameRestaurant = NameRestaurant;
+    }
+
+
     public void setidRestaurant(int idRestaurant) {
         this.idRestaurant = idRestaurant;
     }

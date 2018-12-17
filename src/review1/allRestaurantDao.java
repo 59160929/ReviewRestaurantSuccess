@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -18,31 +19,29 @@ import net.proteanit.sql.DbUtils;
  * @author KirkThunder
  */
 public class allRestaurantDao {
-    
-    //selectnam
-    public static void getname(){
-        String name01 = "";
-        try {
-            db db = new db();
 
+    //selectnam
+    public ArrayList<Restaurant> getAllRestarant() {
+        ArrayList<Restaurant> list = new ArrayList<>();
+        try {
             PreparedStatement pst;
             Connection connection;
             connection = DriverManager.getConnection(db.url, db.username, db.password);
-            Statement stmt = connection.createStatement();
-            String countfromdatabase = "Select NameRestaurant From Restaurant ";
-            ResultSet rs = stmt.executeQuery(countfromdatabase);
-            
-            
+            Statement st = connection.createStatement();
+            String countfromdatabase = "Select NameRestaurant,Rating,Province From Restaurant";
+            ResultSet rs = st.executeQuery(countfromdatabase);
+
+            while (rs.next()) {
+                list.add(new Restaurant(rs.getString("NameRestaurant"), rs.getDouble("Rating"), rs.getString("Province")));
+            }
+               connection.close();
+
         } catch (SQLException ex) {
 
         }
-
-        
+        return list;
     }
 
-    String PROVINCE(String sql) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
+
 }
-

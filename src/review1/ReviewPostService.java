@@ -155,6 +155,7 @@ public class ReviewPostService {
             pst.setInt(2, (int) IDRestaurant);
             pst.setInt(3, (int) 1);
             pst.executeUpdate();
+               connection.close();
 
             return true;
         } catch (SQLException ex) {
@@ -185,6 +186,7 @@ public class ReviewPostService {
             pst.setInt(1, (int) getcount);
             pst.setInt(2, (int) getpoint);
             pst.executeUpdate();
+               connection.close();
 
             return true;
         } catch (SQLException ex) {
@@ -213,6 +215,7 @@ public class ReviewPostService {
             pst.setDouble(1, (double) getrating);
 
             pst.executeUpdate();
+               connection.close();
 
             return true;
         } catch (SQLException ex) {
@@ -224,10 +227,7 @@ public class ReviewPostService {
     public static void main(String[] args) {
         ArrayList<Restaurant> restaurant = getLinkImage();
         //  updatePointAndCount(2,1,5);
-        System.out.print("ok");
-        System.out.println(getCount(2));
-        System.out.println(getPoint(2));
-        updatePointAndCount(2, 1, 25);
+      
 
     }
 

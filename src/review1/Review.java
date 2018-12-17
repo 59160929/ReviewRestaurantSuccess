@@ -112,12 +112,12 @@ public class Review extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 153));
         jLabel12.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel12AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -184,8 +184,8 @@ public class Review extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(point1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(point1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(point2)
                                 .addGap(24, 24, 24)
                                 .addComponent(point3)
@@ -241,12 +241,12 @@ public class Review extends javax.swing.JFrame {
             }
         }.getIcon());
         jLabel16.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel16AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 290, 50));
@@ -273,12 +273,12 @@ public class Review extends javax.swing.JFrame {
             }
         });
         jLabel17.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel17AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel3.add(jLabel17);
@@ -309,12 +309,12 @@ public class Review extends javax.swing.JFrame {
 
         Namelbl.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         Namelbl.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 NamelblAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 680, 50));
@@ -406,12 +406,12 @@ public class Review extends javax.swing.JFrame {
         NameRestaurant.setFont(new java.awt.Font("Angsana New", 1, 48)); // NOI18N
         NameRestaurant.setForeground(new java.awt.Color(255, 0, 153));
         NameRestaurant.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 NameRestaurantAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -448,36 +448,36 @@ public class Review extends javax.swing.JFrame {
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 370, 220));
 
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel2AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 370, 220));
 
         Addresslbl1.setFont(new java.awt.Font("Angsana New", 0, 20)); // NOI18N
         Addresslbl1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 Addresslbl1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(Addresslbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 680, 50));
 
         Reviewlbl1.setFont(new java.awt.Font("Angsana New", 0, 20)); // NOI18N
         Reviewlbl1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 Reviewlbl1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(Reviewlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 680, 50));
@@ -569,11 +569,11 @@ public class Review extends javax.swing.JFrame {
         try {
             // 1 point
             point(1);
-            
+                    showAvarage();
+
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
-        showAvarage();
 
 
     }//GEN-LAST:event_point1ActionPerformed
@@ -583,11 +583,11 @@ public class Review extends javax.swing.JFrame {
         try {
             // 2 point
             point(2);
-            
+                    showAvarage();
+
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
-        showAvarage();
 
 
     }//GEN-LAST:event_point2ActionPerformed
@@ -597,11 +597,11 @@ public class Review extends javax.swing.JFrame {
         try {
             // 3 point
             point(3);
-          
+                  showAvarage();
+
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
-        showAvarage();
 
 
     }//GEN-LAST:event_point3ActionPerformed
@@ -611,11 +611,11 @@ public class Review extends javax.swing.JFrame {
         try {
             // 4 point
             point(4);
-         
+                 showAvarage();
+
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
-        showAvarage();
 
 
     }//GEN-LAST:event_point4ActionPerformed
@@ -625,11 +625,11 @@ public class Review extends javax.swing.JFrame {
         try {
             // 5 point
             point(5);
-      
+              showAvarage();
+
         } catch (SQLException ex) {
             Logger.getLogger(Review.class.getName()).log(Level.SEVERE, null, ex);
         }
-        showAvarage();
 
 
     }//GEN-LAST:event_point5ActionPerformed

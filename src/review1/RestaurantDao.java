@@ -39,10 +39,13 @@ public class RestaurantDao implements DaoReview<Restaurant> {
                         rs.getString("DescribtionRestaurant"), rs.getInt("Count"), rs.getInt("Point"), rs.getInt("Restarantnearby1"),
                         rs.getInt("Restarantnearby2"), rs.getInt("Restarantnearby3"), rs.getString("Province"), rs.getDouble("Rating"), rs.getString("linkImage")));
             }
+              
+               connection.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return restaurant;
     }
 
@@ -62,6 +65,7 @@ public class RestaurantDao implements DaoReview<Restaurant> {
             pst.setInt(1, count);
             pst.setInt(2, point);
             pst.executeUpdate();
+               connection.close();
 
             return true;
         } catch (SQLException ex) {
@@ -85,16 +89,19 @@ public class RestaurantDao implements DaoReview<Restaurant> {
             String sql = "update Restaurant SET Rating = ?  WHERE idRestaurant = " + keepIDrestaurant;
             pst = connection.prepareStatement(sql);
 
-            pst.setDouble(1, getrating);
+            pst.setDouble(1, 10000);
 
             pst.executeUpdate();
+               connection.close();
 
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         return false;
 
     }
+
 
 }
