@@ -144,25 +144,32 @@ public class ReviewPostService {
     }
 
     
-        public static boolean getStatus(int IDRestaurant,int user) {
+ public static int getStatus(int IDRestaurant,int user) {
          ArrayList<Status> status = new ArrayList<>();
         IDRestaurant = IDRestaurant - 1;
 
-       for (int i = 0; i < status.size(); i++) {
+        for (int i = 0; i < status.size(); i++) {
             int  getidRestaurant = status.get(IDRestaurant).getidRestaurant();
             int  getidUser = status.get(IDRestaurant).getidUser();
             int  getStatus = status.get(IDRestaurant).getStatus();
 
                   
-            if(getidRestaurant==IDRestaurant&&getidUser==user&&getStatus==1){
-             
-                    return true; 
+            if(getidRestaurant==IDRestaurant){
+                
+                if(getidUser==user){
+                
+                if(getStatus==1){
+                 return 2;
+                }
+                
+                }
                 
             }
             
+            
         }
-    
-        return false;
+  
+        return 0;
 
     }
     
@@ -177,7 +184,7 @@ public class ReviewPostService {
             connection = DriverManager.getConnection(db.url, db.username, db.password);
             connection.createStatement();
 
-           if(getStatus(IDRestaurant,user)==false){
+           if(getStatus(IDRestaurant,user)==0){
         
             
             String sql = "INSERT INTO Status (idUser,idRestaurant,Status) VALUES (?,?,?) ";
@@ -262,7 +269,7 @@ public class ReviewPostService {
 
     public static void main(String[] args) {
         ArrayList<Restaurant> restaurant = getLinkImage();
-        getStatus( 5,4)  ;    
+        System.out.println(getStatus( 5,4))  ;    
 
     }
 
