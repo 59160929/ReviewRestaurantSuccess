@@ -31,9 +31,16 @@ public class Review extends javax.swing.JFrame {
      * Creates new form Review
      */
     private int IDRestaurant;
-    private int user;
+    private int user=0;
+     String userid =null;
     public Review(int user,int x) {
-        user=1;
+        
+        if(user == 1 ){
+             userid = "golf";
+        }
+        else 
+            userid = "michel";
+        
         IDRestaurant = x;
 
         initComponents();
@@ -65,7 +72,7 @@ public class Review extends javax.swing.JFrame {
         point4 = new javax.swing.JButton();
         point5 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
-        jLabel1 = new javax.swing.JLabel();
+        userlbl = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -112,12 +119,12 @@ public class Review extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 153));
         jLabel12.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel12AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -164,7 +171,15 @@ public class Review extends javax.swing.JFrame {
         jProgressBar1.setMaximum(5);
         jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setText("USER : Boykung");
+        userlbl.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                userlblAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -195,13 +210,13 @@ public class Review extends javax.swing.JFrame {
                                 .addComponent(point5))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(225, 225, 225)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(708, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -241,12 +256,12 @@ public class Review extends javax.swing.JFrame {
             }
         }.getIcon());
         jLabel16.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel16AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 290, 50));
@@ -273,12 +288,12 @@ public class Review extends javax.swing.JFrame {
             }
         });
         jLabel17.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel17AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel3.add(jLabel17);
@@ -309,12 +324,12 @@ public class Review extends javax.swing.JFrame {
 
         Namelbl.setFont(new java.awt.Font("Angsana New", 0, 28)); // NOI18N
         Namelbl.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 NamelblAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(Namelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 680, 50));
@@ -406,12 +421,12 @@ public class Review extends javax.swing.JFrame {
         NameRestaurant.setFont(new java.awt.Font("Angsana New", 1, 48)); // NOI18N
         NameRestaurant.setForeground(new java.awt.Color(255, 0, 153));
         NameRestaurant.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 NameRestaurantAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -448,36 +463,36 @@ public class Review extends javax.swing.JFrame {
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 370, 220));
 
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel2AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 370, 220));
 
         Addresslbl1.setFont(new java.awt.Font("Angsana New", 0, 20)); // NOI18N
         Addresslbl1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 Addresslbl1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(Addresslbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 680, 50));
 
         Reviewlbl1.setFont(new java.awt.Font("Angsana New", 0, 20)); // NOI18N
         Reviewlbl1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 Reviewlbl1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.add(Reviewlbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 680, 50));
@@ -529,15 +544,19 @@ public class Review extends javax.swing.JFrame {
         
         
         if (reviewPostService.updatePointAndCount(IDRestaurant, 1, point) == true) {
-            double rating =     reviewPostService.getRating(IDRestaurant);
-
-            if(reviewPostService.updateRating(IDRestaurant,rating) == true){
+            
+            
+            if(reviewPostService.updateRating(IDRestaurant) == true){
 
                if(reviewPostService.addStatus(IDRestaurant,user) == true){ 
             JOptionPane.showMessageDialog(this, "ให้คะเเนนเรียบร้อยเเล้ว");
 
                }
-               
+               else if(reviewPostService.addStatus(IDRestaurant,user) == false){ 
+                JOptionPane.showMessageDialog(this, "คุณให้คะเเนนเเล้ว");
+
+               }
+
             }
         }
     }
@@ -674,6 +693,12 @@ public class Review extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Reviewlbl1AncestorAdded
 
+    private void userlblAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_userlblAncestorAdded
+                userlbl.setText(userid);
+
+
+    }//GEN-LAST:event_userlblAncestorAdded
+
     /**
      * @param args the command line arguments
      */
@@ -718,7 +743,6 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JButton btnNearby2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -746,5 +770,6 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JButton point3;
     private javax.swing.JButton point4;
     private javax.swing.JButton point5;
+    private javax.swing.JLabel userlbl;
     // End of variables declaration//GEN-END:variables
 }

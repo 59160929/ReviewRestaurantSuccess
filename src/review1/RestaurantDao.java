@@ -49,59 +49,9 @@ public class RestaurantDao implements DaoReview<Restaurant> {
         return restaurant;
     }
 
-    public static boolean updatePointAndCount(String IDRestaurant, int count, int point) {
-        ArrayList<Restaurant> restaurant = new ArrayList<>();
-        try {
-            PreparedStatement pst;
-            Connection connection;
+    
 
-            String keepIDrestaurant = "" + IDRestaurant;
-            connection = DriverManager.getConnection(db.url, db.username, db.password);
-            connection.createStatement();
-
-            String sql = "update Restaurant SET Count = ? , Point= ? WHERE idRestaurant = " + keepIDrestaurant;
-            pst = connection.prepareStatement(sql);
-
-            pst.setInt(1, count);
-            pst.setInt(2, point);
-            pst.executeUpdate();
-               connection.close();
-
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-
-    }
-
-    public static boolean updateRating(String IDRestaurant, double getrating) {
-
-        ArrayList<Restaurant> restaurant = new ArrayList<>();
-        try {
-            PreparedStatement pst;
-            Connection connection;
-
-            String keepIDrestaurant = "" + IDRestaurant;
-            connection = DriverManager.getConnection(db.url, db.username, db.password);
-            connection.createStatement();
-
-            String sql = "update Restaurant SET Rating = ?  WHERE idRestaurant = " + keepIDrestaurant;
-            pst = connection.prepareStatement(sql);
-
-            pst.setDouble(1, 10000);
-
-            pst.executeUpdate();
-               connection.close();
-
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return false;
-
-    }
+    
 
 
 }

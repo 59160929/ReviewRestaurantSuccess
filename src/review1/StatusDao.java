@@ -12,37 +12,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import net.proteanit.sql.DbUtils;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author KirkThunder
+ * @author 59160929
  */
-public class allRestaurantDao {
+public class StatusDao implements DaoStatus<Status> {
 
-    //selectnam
-    public ArrayList<Restaurant> getAllRestarant() {
-        ArrayList<Restaurant> list = new ArrayList<>();
+
+    public ArrayList<Status> getStatus() {
+        ArrayList<Status> status = new ArrayList<>();
         try {
             PreparedStatement pst;
             Connection connection;
             connection = DriverManager.getConnection(db.url, db.username, db.password);
             Statement st = connection.createStatement();
-
-            String countfromdatabase = "Select idRestaurant,NameRestaurant,Rating,Province From Restaurant";
+            String countfromdatabase = "Select * From Status";
             ResultSet rs = st.executeQuery(countfromdatabase);
 
             while (rs.next()) {
-                list.add(new Restaurant(rs.getInt("idRestaurant"),rs.getString("NameRestaurant"), rs.getDouble("Rating"), rs.getString("Province")));
-               
+                status.add(new Status(rs.getInt("idStatus"), rs.getInt("idUser"), rs.getInt("isREstaurant"),rs.getInt("Status")));
             }
+              
+               connection.close();
 
         } catch (SQLException ex) {
-
+            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return list;
+
+        return status;
     }
 
    
 
 }
+
+    
+

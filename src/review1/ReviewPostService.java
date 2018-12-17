@@ -23,12 +23,19 @@ public class ReviewPostService {
 
     private static DaoReview restaurantDao;
   private static DaoReview restaurant;  
+  private static DaoStatus daoStatus;  
 
     public static ArrayList<Restaurant> getLinkImage() {
 
         restaurantDao = new RestaurantDao();
 
         return restaurantDao.getRestaurant();
+    }
+       public static ArrayList<Status> getid() {
+
+        daoStatus = new StatusDao();
+
+        return daoStatus.getStatus();
     }
 
     public static String getLink(int IDRestaurant) {
@@ -136,10 +143,33 @@ public class ReviewPostService {
 
     }
 
+    
+        public static boolean getStatus(int IDRestaurant,int user) {
+         ArrayList<Status> status = new ArrayList<>();
+        IDRestaurant = IDRestaurant - 1;
+
+       for (int i = 0; i < status.size(); i++) {
+            int  getidRestaurant = status.get(IDRestaurant).getidRestaurant();
+            int  getidUser = status.get(IDRestaurant).getidUser();
+            int  getStatus = status.get(IDRestaurant).getStatus();
+
+                  
+            if(getidRestaurant==IDRestaurant&&getidUser==user&&getStatus==1){
+             
+                    return true; 
+                
+            }
+            
+        }
+    
+        return false;
+
+    }
+    
     public static boolean addStatus(int IDRestaurant, int user) {
         ArrayList<Restaurant> restaurant = new ArrayList<>();
-
-   
+       
+        
         try {
             PreparedStatement pst;
             Connection connection;
@@ -147,7 +177,9 @@ public class ReviewPostService {
             connection = DriverManager.getConnection(db.url, db.username, db.password);
             connection.createStatement();
 
-
+           if(getStatus(IDRestaurant,user)==false){
+        
+            
             String sql = "INSERT INTO Status (idUser,idRestaurant,Status) VALUES (?,?,?) ";
             pst = connection.prepareStatement(sql);
 
@@ -158,7 +190,9 @@ public class ReviewPostService {
                connection.close();
 
             return true;
-        } catch (SQLException ex) {
+        }
+        }
+        catch (SQLException ex) {
             Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -171,11 +205,10 @@ public class ReviewPostService {
         getpoint = getpoint + point;
         double getcount = getCount(IDRestaurant);
         getcount = getcount + count;
-
-        try {
+        
+         try {
             PreparedStatement pst;
             Connection connection;
-
             String keepIDrestaurant = "" + IDRestaurant;
             connection = DriverManager.getConnection(db.url, db.username, db.password);
             connection.createStatement();
@@ -186,6 +219,8 @@ public class ReviewPostService {
             pst.setInt(1, (int) getcount);
             pst.setInt(2, (int) getpoint);
             pst.executeUpdate();
+            
+            
                connection.close();
 
             return true;
@@ -195,11 +230,12 @@ public class ReviewPostService {
         return false;
     }
 
-    public static boolean updateRating(int IDRestaurant, double rating) {
+    public static boolean updateRating(int IDRestaurant) {
         ArrayList<Restaurant> restaurant = new ArrayList<>();
 
-        double getrating = getRating(IDRestaurant);
-        getrating = getrating + rating;
+        double getpoint = getPoint(IDRestaurant);
+        double getcount = getCount(IDRestaurant);
+        double getrating =  getpoint/getcount;
 
         try {
             PreparedStatement pst;
@@ -226,8 +262,7 @@ public class ReviewPostService {
 
     public static void main(String[] args) {
         ArrayList<Restaurant> restaurant = getLinkImage();
-        //  updatePointAndCount(2,1,5);
-      
+        getStatus( 5,4)  ;    
 
     }
 
