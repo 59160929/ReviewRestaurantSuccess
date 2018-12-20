@@ -33,7 +33,7 @@ public class StatusDao implements DaoStatus<Status> {
             ResultSet rs = st.executeQuery(countfromdatabase);
 
             while (rs.next()) {
-                status.add(new Status(rs.getInt("idStatus"), rs.getInt("idUser"), rs.getInt("isREstaurant"),rs.getInt("Status")));
+                status.add(new Status(rs.getInt("idStatus"), rs.getInt("idUser"), rs.getInt("idRestaurant"),rs.getInt("Status")));
             }
               
                connection.close();

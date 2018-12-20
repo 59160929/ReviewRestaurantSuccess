@@ -14,5 +14,13 @@ import java.util.ArrayList;
 public interface DaoReview<T> {
       
     ArrayList<T> getRestaurant();
+
+    public void addStatus(int IDRestaurant, int user, int i);
+
+    public void addStatus(int IDRestaurant, double count, double point);
+
+    public void updateRating(int IDRestaurant, double rating);
+
+    public void updatePointAndCount(int IDRestaurant, double count, double point);
     
 }

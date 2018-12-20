@@ -27,8 +27,36 @@ public final class Restaurant {
     public Restaurant(){
     
     }
-     public Restaurant(int idRestaurant, String NameRestaurant,String AddressRestaurant,String DescribtionRestaurant,int Count,int Point,int Restarantnearby1,int Restarantnearby2,int Restarantnearby3,String Province,double Rating,String linkImage) {
+ public Restaurant(int idRestaurant, String NameRestaurant,String AddressRestaurant,String DescribtionRestaurant,int Restarantnearby1,int Restarantnearby2,int Restarantnearby3,String Province,String linkImage) {
         this.idRestaurant = idRestaurant;
+        this.NameRestaurant = NameRestaurant;
+        this.AddressRestaurant = AddressRestaurant;
+        this.DescribtionRestaurant = DescribtionRestaurant;
+        this.Restarantnearby1 = Restarantnearby1;
+        this.Restarantnearby2 = Restarantnearby2;
+        this.Restarantnearby3 = Restarantnearby3;
+        this.Province = Province;
+        this.linkImage = linkImage;
+
+        
+    }
+
+     public Restaurant( String NameRestaurant,String Province) {
+        this.NameRestaurant = NameRestaurant;
+        this.Province = Province;
+
+        
+    }
+     public Restaurant(int idRestaurant,String NameRestaurant,String linkImage) {
+        
+        this.idRestaurant = idRestaurant;
+       this.NameRestaurant = NameRestaurant;
+     this.linkImage = linkImage;
+    }
+        
+     public Restaurant(int idRestaurant, String NameRestaurant,String AddressRestaurant,String DescribtionRestaurant,int Count,int Point,int Restarantnearby1,int Restarantnearby2,int Restarantnearby3,String Province,double Rating, String linkImage) {
+        
+            this.idRestaurant = idRestaurant;
         this.NameRestaurant = NameRestaurant;
         this.AddressRestaurant = AddressRestaurant;
         this.DescribtionRestaurant = DescribtionRestaurant;
@@ -43,6 +71,7 @@ public final class Restaurant {
 
         
     }
+     
 
 
 

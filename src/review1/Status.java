@@ -10,49 +10,53 @@ package review1;
  * @author 59160929
  */
 public final class Status {
+
     int idStatus;
     int idUser;
     int idRestaurant;
     int status;
-    
-    public Status(){
-    
-    }
-     public Status(int idStatus,int idUser,int idRestaurant,int status) {
-                  this.idStatus = idStatus;
 
-         this.idUser = idUser;
-        this.idRestaurant = idRestaurant;
-        this.status = status;
+    public Status() {
 
     }
-     
-      public void idStatus(int idStatus) {
+
+    public Status(int idStatus, int idUser, int idRestaurant, int status) {
         this.idStatus = idStatus;
-    }
-   public void setidUser(int idUser) {
         this.idUser = idUser;
-    }
-   
-     public void setidRestaurant(int idUser) {
         this.idRestaurant = idRestaurant;
-    }
-    public void setstatus(int status) {
         this.status = status;
     }
 
+    public int getIdStatus() {
+        return idStatus;
+    }
 
-    public int getidUser() {
+    public int getIdUser() {
         return idUser;
     }
-     public int getidRestaurant() {
+
+    public int getIdRestaurant() {
         return idRestaurant;
     }
-        public int getStatus() {
+
+    public int getStatus() {
         return status;
     }
 
+    public void setIdStatus(int idStatus) {
+        this.idStatus = idStatus;
+    }
 
-   
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public void setIdRestaurant(int idRestaurant) {
+        this.idRestaurant = idRestaurant;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
 }

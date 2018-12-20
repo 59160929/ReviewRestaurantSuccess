@@ -21,18 +21,25 @@ import net.proteanit.sql.DbUtils;
  *
  * @author 59160929
  */
-public class allRastaurant extends javax.swing.JFrame {
-
-    PreparedStatement ps = null;
+public class allRestaurant extends javax.swing.JFrame {
+PreparedStatement ps = null;
     Connection connection = null;
     ResultSet rs = null;
     ArrayList<Restaurant> or = new ArrayList<>();
     allRestaurantService aRS = new allRestaurantService();
+      String userid =null;
+      
+       private int IDRestaurant;
+    private int user;
 
-    /**
-     * Creates new form IndexList
-     */
-    public allRastaurant() {
+    public allRestaurant(int id,String userid) {
+        
+        user = id;
+        this.userid = userid;
+
+        initComponents();
+    }
+    public allRestaurant() {
 
         initComponents();
         DefaultTableModel model = (DefaultTableModel) showRestaurantTable.getModel();
@@ -50,7 +57,7 @@ public class allRastaurant extends javax.swing.JFrame {
             model.addRow(rw);
 
         }
-
+     
     }
 
     /**
@@ -63,7 +70,7 @@ public class allRastaurant extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        userlbl = new javax.swing.JLabel();
         search = new javax.swing.JButton();
         comboprovince = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -77,8 +84,16 @@ public class allRastaurant extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel2.setText("จังหวัด");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel3.setText("jLabel1");
+        userlbl.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        userlbl.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                userlblAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         search.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         search.setText("ค้นหา");
@@ -136,9 +151,6 @@ public class allRastaurant extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -157,11 +169,14 @@ public class allRastaurant extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(61, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(search)
@@ -208,7 +223,11 @@ public class allRastaurant extends javax.swing.JFrame {
         }*/
 
         //----------------------
-          DefaultTableModel model = (DefaultTableModel) showRestaurantTable.getModel();
+          getDataTable();
+        }
+
+    private void getDataTable() {
+       DefaultTableModel model = (DefaultTableModel) showRestaurantTable.getModel();
         ArrayList<Restaurant> getRestaurant = new ArrayList<Restaurant>();
         getRestaurant = aRS.getData();
 
@@ -268,7 +287,7 @@ public class allRastaurant extends javax.swing.JFrame {
                 continue;
             }
 
-        }
+    }
 
 
  
@@ -282,6 +301,7 @@ public class allRastaurant extends javax.swing.JFrame {
 
     private void showRestaurantTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_showRestaurantTableAncestorAdded
 
+        getDataTable();
     }//GEN-LAST:event_showRestaurantTableAncestorAdded
 
     private void see_reviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_see_reviewActionPerformed
@@ -292,17 +312,21 @@ public class allRastaurant extends javax.swing.JFrame {
         model = (DefaultTableModel) showRestaurantTable.getModel();
 
         int value = Integer.parseInt(model.getValueAt(index, 0).toString());
-        int idRestaurant = value;
-        System.out.println();
         
         setVisible(false);
         
                
-        Review change = new Review(5,value);
+        Review change = new Review(value,user,userid);
         change.setVisible(true);
 
         
     }//GEN-LAST:event_see_reviewActionPerformed
+
+    private void userlblAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_userlblAncestorAdded
+
+                userlbl.setText(userid);
+
+    }//GEN-LAST:event_userlblAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -311,7 +335,7 @@ public class allRastaurant extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new allRastaurant().setVisible(true);
+                new allRestaurant().setVisible(true);
 
             }
         });
@@ -320,11 +344,11 @@ public class allRastaurant extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboprovince;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton search;
     private javax.swing.JButton see_review;
     private javax.swing.JTable showRestaurantTable;
+    private javax.swing.JLabel userlbl;
     // End of variables declaration//GEN-END:variables
 }

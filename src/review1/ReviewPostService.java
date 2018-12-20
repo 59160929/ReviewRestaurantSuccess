@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static jdk.nashorn.internal.objects.NativeMath.round;
 
 /**
  *
@@ -22,8 +23,8 @@ import java.util.logging.Logger;
 public class ReviewPostService {
 
     private static DaoReview restaurantDao;
-  private static DaoReview restaurant;  
-  private static DaoStatus daoStatus;  
+    private static DaoReview restaurant;
+    private static DaoStatus daoStatus;
 
     public static ArrayList<Restaurant> getLinkImage() {
 
@@ -31,7 +32,8 @@ public class ReviewPostService {
 
         return restaurantDao.getRestaurant();
     }
-       public static ArrayList<Status> getid() {
+
+    public static ArrayList<Status> getid() {
 
         daoStatus = new StatusDao();
 
@@ -53,10 +55,10 @@ public class ReviewPostService {
         IDRestaurant = IDRestaurant - 1;
 
         for (int i = 0; i < restaurant.size(); i++) {
-            double point = restaurant.get(IDRestaurant).getPoint()+0.00;
+            double point = restaurant.get(IDRestaurant).getPoint() + 0.00;
             return point;
-
         }
+
         return 0.00;
     }
 
@@ -64,27 +66,16 @@ public class ReviewPostService {
         ArrayList<Restaurant> restaurant = getLinkImage();
         IDRestaurant = IDRestaurant - 1;
         System.out.println(IDRestaurant);
-                
+
         for (int i = 1; i < restaurant.size(); i++) {
-            double count=restaurant.get(IDRestaurant).getCount()+0.00;
+            double count = restaurant.get(IDRestaurant).getCount() + 0.00;
             return count;
-
-        }   
-        return 0.00;
-    }
-
-    public static double getRating(int IDRestaurant) {
-        ArrayList<Restaurant> restaurant = getLinkImage();
-        IDRestaurant = IDRestaurant - 1;
-
-        for (int i = 1; i < restaurant.size(); i++) {
-            
-            return restaurant.get(IDRestaurant).getRating();
 
         }
         return 0.00;
     }
 
+   
     public static double getAverage(int IDRestaurant) {
         ArrayList<Restaurant> restaurant = getLinkImage();
 
@@ -143,65 +134,34 @@ public class ReviewPostService {
 
     }
 
-    
- public static int getStatus(int IDRestaurant,int user) {
-         ArrayList<Status> status = new ArrayList<>();
-        IDRestaurant = IDRestaurant - 1;
+    public static int getStatus(int IDRestaurant, int user) {
+        ArrayList<Status> status = getStatus();
+        //IDRestaurant = IDRestaurant - 1;
+        int x = 1;
 
         for (int i = 0; i < status.size(); i++) {
-            int  getidRestaurant = status.get(IDRestaurant).getidRestaurant();
-            int  getidUser = status.get(IDRestaurant).getidUser();
-            int  getStatus = status.get(IDRestaurant).getStatus();
-
-                  
-            if(getidRestaurant==IDRestaurant){
-                
-                if(getidUser==user){
-                
-                if(getStatus==1){
-                 return 2;
-                }
-                
-                }
-                
+            if (status.get(i).getIdRestaurant() == IDRestaurant && status.get(i).getIdUser() == user && status.get(i).getStatus() == 1) {
+                return x = 2;
             }
-            
-            
+
         }
-  
-        return 0;
+
+        return x;
 
     }
-    
+
+    public static ArrayList<Status> getStatus() {
+          daoStatus = new StatusDao();
+          return daoStatus.getStatus();
+    }
+
     public static boolean addStatus(int IDRestaurant, int user) {
         ArrayList<Restaurant> restaurant = new ArrayList<>();
-       
-        
-        try {
-            PreparedStatement pst;
-            Connection connection;
 
-            connection = DriverManager.getConnection(db.url, db.username, db.password);
-            connection.createStatement();
-
-           if(getStatus(IDRestaurant,user)==0){
-        
-            
-            String sql = "INSERT INTO Status (idUser,idRestaurant,Status) VALUES (?,?,?) ";
-            pst = connection.prepareStatement(sql);
-
-            pst.setInt(1, (int) user);
-            pst.setInt(2, (int) IDRestaurant);
-            pst.setInt(3, (int) 1);
-            pst.executeUpdate();
-               connection.close();
-
-            return true;
-        }
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         if (getStatus(IDRestaurant, user) == 1) {
+        restaurantDao.addStatus(IDRestaurant, user, user);
+        return true;
+         }
         return false;
     }
 
@@ -212,64 +172,26 @@ public class ReviewPostService {
         getpoint = getpoint + point;
         double getcount = getCount(IDRestaurant);
         getcount = getcount + count;
+        double getrating = getpoint / getcount;
+           restaurantDao.updateRating(IDRestaurant,getrating);
+             restaurantDao.updatePointAndCount(IDRestaurant, getcount, getpoint);
+        return true;
         
-         try {
-            PreparedStatement pst;
-            Connection connection;
-            String keepIDrestaurant = "" + IDRestaurant;
-            connection = DriverManager.getConnection(db.url, db.username, db.password);
-            connection.createStatement();
+       
 
-            String sql = "update Restaurant SET Count = ? ,Point = ? WHERE idRestaurant = " + keepIDrestaurant;
-            pst = connection.prepareStatement(sql);
-
-            pst.setInt(1, (int) getcount);
-            pst.setInt(2, (int) getpoint);
-            pst.executeUpdate();
-            
-            
-               connection.close();
-
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
+         
     }
 
-    public static boolean updateRating(int IDRestaurant) {
-        ArrayList<Restaurant> restaurant = new ArrayList<>();
-
-        double getpoint = getPoint(IDRestaurant);
-        double getcount = getCount(IDRestaurant);
-        double getrating =  getpoint/getcount;
-
-        try {
-            PreparedStatement pst;
-            Connection connection;
-
-            String keepIDrestaurant = "" + IDRestaurant;
-            connection = DriverManager.getConnection(db.url, db.username, db.password);
-            connection.createStatement();
-
-            String sql = "update Restaurant SET Rating = ? WHERE idRestaurant = " + keepIDrestaurant;
-            pst = connection.prepareStatement(sql);
-
-            pst.setDouble(1, (double) getrating);
-
-            pst.executeUpdate();
-               connection.close();
-
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(RestaurantDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
+    
 
     public static void main(String[] args) {
         ArrayList<Restaurant> restaurant = getLinkImage();
-        System.out.println(getStatus( 5,4))  ;    
+        ArrayList<Status> status = getStatus();
+       // System.out.println(getStatus(5, 4));
+        
+//        for(int i =0 ; i<status.size(); i++){
+//            System.out.println(status.get(i).getIdStatus()+" "+ status.get(i).getIdUser());
+//        }
 
     }
 
